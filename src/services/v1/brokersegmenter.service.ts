@@ -2,6 +2,7 @@ import { ChildProcess, spawn, SpawnOptions } from "child_process";
 import { writeFileSync } from "fs";
 import { resolve } from "path";
 import { SaveTest } from "../savetest.service";
+import configarguments from "../../utils/configarguments.util";
 
 export class BrokerSegmenter {
   private readonly source: string;

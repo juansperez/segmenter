@@ -1,0 +1,35 @@
+const configArguments: any = {
+  V1: ["-c:v", "libvpx-vp9", "-c:a", "libopus"],
+  V2: ["-speed", "4", "-c:v", "libvpx-vp9", "-c:a", "libopus"],
+  V3: ["-speed", "4", "-threads", "3", "-c:v", "libvpx-vp9", "-c:a", "libopus"],
+  V4: [
+    "-vf",
+    "scale=640x480",
+    "-b:v",
+    "750k",
+    "-quality",
+    "good",
+    "-speed",
+    "4",
+    "-crf",
+    "33",
+    "-c:v",
+    "libvpx-vp9",
+    "-c:a",
+    "libopus",
+  ],
+  V5: [
+    "-quality",
+    "realtime",
+    "-speed",
+    "4",
+    "-threads",
+    "3",
+    "-c:v",
+    "libvpx-vp9",
+    "-c:a",
+    "libopus",
+  ],
+};
+
+export default configArguments;
