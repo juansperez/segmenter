@@ -2,7 +2,7 @@ import { ChildProcess, spawn, SpawnOptions } from "child_process";
 import { writeFileSync } from "fs";
 import { resolve } from "path";
 import { SaveTest } from "../savetest.service";
-import configarguments from "../../utils/configarguments.util";
+import configArguments from "../../utils/configarguments.util";
 
 export class BrokerSegmenter {
   private readonly source: string;
@@ -125,34 +125,4 @@ export class BrokerSegmenter {
 
   //   });
   // }
-
-  // async add() {
-  //   let saved = false;
-  //   let id = 0;
-  //   if (db.length > 0) {
-  //     const lastTest = db[db.length - 1];
-  //     id = lastTest.id;
-  //   }
-  //   this.test.id = id + 1;
-  //   db.push(this.test);
-  //   console.log(this.test);
-  //   console.log(JSON.stringify(db));
-  //   fs.writeFileSync(DB_PATH, JSON.stringify(db));
-  //   saved = true;
-
-  //   return saved;
-  // }
 }
-
-// frame=  828 fps= 29 q=0.0 Lsize=    1751kB time=00:00:49.68 bitrate= 288.7kbits/s speed=1.74x
-// video:1299kB audio:428kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 1.367824%
-
-// frame=  828 fps= 11 q=0.0 Lsize=    1737kB time=00:00:49.68 bitrate= 286.5kbits/s speed=0.677x
-// video:1286kB audio:428kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 1.378682%
-
-// frame=  828 fps= 30 q=0.0 Lsize=    1751kB time=00:00:49.68 bitrate= 288.7kbits/s speed=1.78x
-// video:1299kB audio:428kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 1.367824%
-
-// Video grande
-// frame=  901 fps= 12 q=0.0 Lsize=     903kB time=00:00:30.53 bitrate= 242.4kbits/s speed=0.423x
-// video:882kB audio:4kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 1.848420%
