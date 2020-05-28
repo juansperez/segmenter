@@ -1,0 +1,8 @@
+{
+  "messages": {
+    "server": {
+      "success": "Servidor arriba",
+      "talenta": "Hello Talenta's server is up {{value}}"
+    }
+  }
+}
