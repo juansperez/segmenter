@@ -1,29 +1,47 @@
 import {
-  Controller,
-  Get,
-  Req,
-  Res,
-  Param,
+  // Controller,
+  // Get,
+  // Req,
+  // Res,
+  // Param,
   JsonController,
   Post,
   UploadedFile,
 } from "routing-controllers";
-import { Response } from "express";
-import { IRequest } from "../../interfaces/request.interface";
 
-import { BrokerSegmenter } from "../../services/v1/brokersegmenter.service";
+// import logger from '../../utils/logger/logger.util'
+
+// import { Response } from "express";
+// import { IRequest } from "../../interfaces/request.interface";
+
+import { BrokerSegmenter } from "../../services/v1/broker-multiple-segmenter";
+
+import ConfigArguments from "../../utils/configarguments.util";
+
+import videoSegmenter from "../../models/video-segmenter.model";
 
 @JsonController("/v1/uploadfiles")
 class UploadFilesController {
   @Post("/segmenter")
-  segmenterUpload(@UploadedFile("fileName") file: Express.Multer.File) {
-    console.log("receive process: ", new Date());
-    console.log(file);
-    const brokerSegmenter = new BrokerSegmenter(file);
+  async segmenterUpload(@UploadedFile("fileName") file: Express.Multer.File) {
+    const segmenter = new videoSegmenter({
+      name: file.originalname,
+      size: file.size,
+    });
 
-    if (brokerSegmenter.saveInDisk()) {
-      return brokerSegmenter.startEncode();
-    }
+    await segmenter.save();
+
+    ConfigArguments.forEach((element: any) => {
+      const brokerSegmenter = new BrokerSegmenter(
+        file,
+        element.arguments,
+        element.version,
+        segmenter
+      );
+      if (brokerSegmenter.saveInDisk()) {
+        return brokerSegmenter.startEncode();
+      }
+    });
 
     return false;
   }

@@ -1,24 +1,30 @@
 import fs from "fs";
 import db from "../../data/db.json";
 
-export class SaveTest {
+export class SegmenterTest {
   private test: any = {
-    id: null,
-    init_process: null,
-    name: null,
-    arguments_process: null,
-    init_save: null,
-    end_save: null,
-    error_segmenter: null,
-    error_saving: null,
-    size: null,
+    uuid: "",
+    videoName: "",
+    argumentsSegmenters: [
+      {
+        uuid: null,
+        init_process: null,
+        name: null,
+        arguments_process: null,
+        init_save: null,
+        end_save: null,
+        error_segmenter: null,
+        error_saving: null,
+        size: null,
+      },
+    ],
   };
 
   constructor(test: any = null) {
     this.test = test;
   }
 
-  async add() {
+  async add(test: any = this.test) {
     let saved = false;
     let id = 0;
     if (db.length > 0) {

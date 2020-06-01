@@ -5,6 +5,7 @@ import app from "../app";
 import morgan from "morgan";
 import { stream } from "../utils/logger/logger.util";
 import { LOG_FORMAT } from "../constants";
+import * as path from "path";
 
 export default class Server {
   public port: number;

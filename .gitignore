@@ -10,4 +10,4 @@ dist/
 .env
 
 /logs
-/data
+/data/*

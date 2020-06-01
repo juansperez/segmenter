@@ -2,7 +2,7 @@ import { ChildProcess, spawn, SpawnOptions } from "child_process";
 import { writeFileSync } from "fs";
 import { resolve } from "path";
 import { SaveTest } from "../savetest.service";
-import configarguments from "../../utils/configarguments.util";
+// import ConfigArguments from "../../utils/configarguments.util";
 
 export class BrokerSegmenter {
   private readonly source: string;
@@ -22,31 +22,20 @@ export class BrokerSegmenter {
   };
   readonly saveTest: SaveTest;
 
-  constructor(file: Express.Multer.File) {
-    this.saveTest = new SaveTest(test);
+  constructor(file: Express.Multer.File, configArguments: string[], version: string) {
+    this.saveTest = new SaveTest(this.test);
     this.test.init_process = new Date();
     this.test.size = file.size;
-    this.test.name = file.originalname;
+    this.test.name = file.originalname+'-'+version;
     this.file = file;
     this.source = resolve(`data/${file.originalname}`);
     // tslint:disable-next-line:max-line-length
     //  this.mediaArguments = ["-vf", "scale=640x480", "-b:v", "750k", "-quality", "good", "-speed", "4", "-crf", "33", "-c:v", "libvpx-vp9", "-c:a", "libopus"];
-    this.mediaArguments = [
-      "-quality",
-      "realtime",
-      "-speed",
-      "4",
-      "-threads",
-      "3",
-      "-c:v",
-      "libvpx-vp9",
-      "-c:a",
-      "libopus",
-    ];
+    this.mediaArguments = configArguments;
     //  this.mediaArguments = ["-speed", "4", "-threads", "3","-c:v", "libvpx-vp9", "-c:a", "libopus"];
     //  this.mediaArguments = ["-speed", "4","-c:v", "libvpx-vp9", "-c:a", "libopus"];
     //  this.mediaArguments = ["-c:v", "libvpx-vp9", "-c:a", "libopus"];
-    this.mediaPath = resolve(`data/converteds/${file.originalname}.webm`);
+    this.mediaPath = resolve(`data/converteds/${file.originalname}${version}.webm`);
     this.test.arguments_process = this.mediaArguments;
   }
   // tslint:disable-next-line:max-line-length
