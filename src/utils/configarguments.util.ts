@@ -1,38 +1,38 @@
 const ConfigArguments: any = [
   {
-    version: 'V1', 
+    version: 'V1',
     arguments: [
-      "-c:v", 
-      "libvpx-vp9", 
-      "-c:a", 
+      "-c:v",
+      "libvpx-vp9",
+      "-c:a",
       "libopus"
     ]
   },
   {
-    version: 'V2', 
+    version: 'V2',
     arguments: [
-      "-speed", 
-      "4", 
-      "-c:v", 
-      "libvpx-vp9", 
-      "-c:a", 
+      "-speed",
+      "4",
+      "-c:v",
+      "libvpx-vp9",
+      "-c:a",
       "libopus"
     ]
   },
   {
-    version: 'V3', 
+    version: 'V3',
     arguments: [
-      "-speed", 
-      "4", 
-      "-threads", 
-      "3", 
-      "-c:v", 
-      "libvpx-vp9", 
-      "-c:a", 
+      "-speed",
+      "4",
+      "-threads",
+      "3",
+      "-c:v",
+      "libvpx-vp9",
+      "-c:a",
       "libopus"]
   },
   {
-    version: 'V4', 
+    version: 'V4',
     arguments: [
       "-vf",
       "scale=640x480",
@@ -51,7 +51,7 @@ const ConfigArguments: any = [
     ]
   },
   {
-    version: 'V5', 
+    version: 'V5',
     arguments: [
       "-quality",
       "realtime",
