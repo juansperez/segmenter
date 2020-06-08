@@ -40,7 +40,7 @@ export const videoSegmenterArgument = new mongoose.Schema({
   },
 });
 
-const VideoSegmenterArgument = mongoose.model<IVideoSegmenterArguments>(
+const VideoSegmenterArgument = mongoose.model(
   "video_segmenter_arguments",
   videoSegmenterArgument
 );

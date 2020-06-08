@@ -18,12 +18,13 @@ import { BrokerSegmenter } from "../../services/v1/broker-multiple-segmenter";
 
 import ConfigArguments from "../../utils/configarguments.util";
 
-import videoSegmenter from "../../models/video-segmenter.model";
+// import videoSegmenter from "../../models/video-segmenter.model";
 
 @JsonController("/v1/uploadfiles")
 class UploadFilesController {
   @Post("/segmenter")
   async segmenterUpload(@UploadedFile("fileName") file: Express.Multer.File) {
+    /*
     const segmenter = new videoSegmenter({
       name: file.originalname,
       size: file.size,
@@ -42,7 +43,7 @@ class UploadFilesController {
         return brokerSegmenter.startEncode();
       }
     });
-
+    /* */
     return false;
   }
 }

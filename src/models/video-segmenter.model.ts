@@ -1,7 +1,8 @@
+
 import mongoose from "../db/moogoose.connection";
 
 import { videoSegmenterArgument } from "./video-segmenter-argument.model";
-import { IVideoSegmenter } from "../interfaces/video-segmenter.interface";
+// import { IVideoSegmenter } from "../interfaces/video-segmenter.interface";
 
 const videoSegmenter = new mongoose.Schema({
   name: {
@@ -16,9 +17,10 @@ const videoSegmenter = new mongoose.Schema({
   videoSegmenterArguments: [videoSegmenterArgument],
 });
 
-const VideoSegmenter = mongoose.model<IVideoSegmenter>(
+const VideoSegmenter = mongoose.model(
   "video_segmenters",
   videoSegmenter
 );
 
 export default VideoSegmenter;
+/* */

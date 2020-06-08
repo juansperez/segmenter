@@ -1,6 +1,5 @@
-import mongoose from "../db/moogoose.connection";
-
-export interface IVideoSegmenterArguments extends mongoose.Document {
+export interface IVideoSegmenterArguments {
+  id?:string;
   fileName?: string;
   argumentsProcess?: string[];
   sizeSegmenter?: number;
