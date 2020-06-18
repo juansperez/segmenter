@@ -38,6 +38,9 @@ export const videoSegmenterArgument = new mongoose.Schema({
   errorSaving: {
     type: String,
   },
+  versionSegmenter: {
+    type: String
+  },
 });
 
 const VideoSegmenterArgument = mongoose.model<IVideoSegmenterArguments>(

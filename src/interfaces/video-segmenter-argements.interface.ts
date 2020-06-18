@@ -5,6 +5,7 @@ export interface IVideoSegmenterArguments extends mongoose.Document {
   argumentsProcess?: string[];
   sizeSegmenter?: number;
   url?: string;
+  versionSegmenter?: string;
   initProcess?: Date;
   endProcess?: Date;
   initSave?: Date;

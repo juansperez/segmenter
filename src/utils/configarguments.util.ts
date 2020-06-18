@@ -11,6 +11,8 @@ const ConfigArguments: any = [
   {
     version: 'V2',
     arguments: [
+      "-threads",
+      "4",
       "-speed",
       "4",
       "-c:v",
@@ -65,6 +67,37 @@ const ConfigArguments: any = [
       "libopus",
     ]
   },
+  {
+    version: 'V6',
+    arguments: [
+    "-vf",
+    "scale=640x480",
+    "-b:v",
+    "750k",
+    "-minrate",
+    "375k",
+    "-maxrate",
+    "1088k",
+    "-tile-columns",
+    "1",
+    "-g",
+    "240",
+    "-threads",
+    "4",
+    "-quality",
+    "good",
+    "-crf",
+    "33",
+    "-c:v",
+    "libvpx-vp9",
+    "-c:a",
+    "libopus",
+    "-pass",
+    "2",
+    "-speed",
+    "4"
+    ]
+    }
 ];
 
 export default ConfigArguments;

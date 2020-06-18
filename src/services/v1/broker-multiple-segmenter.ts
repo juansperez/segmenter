@@ -24,10 +24,11 @@ export class BrokerSegmenter {
     this.videoSegmenter = videoSegmenterInit;
     this.videoSegmenterArguments.initProcess = new Date();
     this.videoSegmenterArguments.fileName =
-      videoSegmenterInit._id + "-" + version;
+    videoSegmenterInit._id + "-" + version;
     this.videoSegmenterArguments.argumentsProcess = configArguments;
     this.videoSegmenterArguments.url = `http://localhost:3000/videos/${videoSegmenterInit._id}-${version}.webm`;
-
+    this.videoSegmenterArguments.versionSegmenter = version;
+    console.log('version', version)
     this.file = file;
     this.source = resolve(`data/${file.originalname}`);
     this.mediaArguments = configArguments;
@@ -39,14 +40,18 @@ export class BrokerSegmenter {
   saveInDisk(): boolean {
     try {
       this.videoSegmenterArguments.initSave = new Date();
+      this.videoSegmenter.startSave = new Date();
       // strategy storage
       writeFileSync(this.source, this.file.buffer);
       this.videoSegmenter.url = `http://localhost:3000/video_originals/${this.file.originalname}`;
       this.videoSegmenterArguments.endSave = new Date();
+      this.videoSegmenter.endSave = new Date();
       return true;
     } catch (error) {
       logger.error(error);
       this.videoSegmenterArguments.errorSaving = error;
+      this.videoSegmenter.errorSaving = error;
+
       return false;
     }
   }

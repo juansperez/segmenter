@@ -13,6 +13,15 @@ const videoSegmenter = new mongoose.Schema({
   url: {
     type: String,
   },
+  startSave: {
+    type: String
+  },
+  endSave: {
+    type: String
+  },
+  errorSaving: {
+    type: String
+  },
   videoSegmenterArguments: [videoSegmenterArgument],
 });
 
