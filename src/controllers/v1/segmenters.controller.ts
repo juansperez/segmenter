@@ -19,9 +19,7 @@ class SegementersController {
 
   constructor(
     private segmentersServices: SegmenterServices = new SegmenterServices()
-  ){
-
-  }
+  ){}
 
   @Get("/")
   async segmenterList(@Res() response: any) {
@@ -29,13 +27,11 @@ class SegementersController {
     return segmentersList;
   }
 
-  /*
   @Delete("/")
   async segmenterDelete() {
-    await VideoSegmenter.deleteMany({});
+    await this.segmentersServices.deleteSegmenters();
     return { message: "Delete all values" };
   }
-  /* */
 }
 
 export default SegementersController;

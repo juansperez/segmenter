@@ -8,10 +8,12 @@ import {
   OneToMany
 } from "typeorm";
 
-import {VideoSegmenter} from '../videos.segmenter.model'
+import {VideoSegmenter} from './videos.segmenter.model'
+import { Transform } from "class-transformer";
 
 @Entity("video_segmenter_arguments")
 export class VideoSegmenterArgument {
+  @Transform( (id: ObjectID) => id.toHexString(), {toPlainOnly:true} )
   @ObjectIdColumn({ name: "_id" })
   id: ObjectID;
 

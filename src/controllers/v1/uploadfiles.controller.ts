@@ -14,7 +14,7 @@ import {
 // import { Response } from "express";
 // import { IRequest } from "../../interfaces/request.interface";
 
-import { BrokerSegmenter } from "../../services/v1/broker-multiple-segmenter";
+import { BrokerSegmenter } from '../../services/v1/brokermultiplesegmenter.services'
 
 import ConfigArguments from "../../utils/configarguments.util";
 
@@ -24,6 +24,10 @@ import ConfigArguments from "../../utils/configarguments.util";
 class UploadFilesController {
   @Post("/segmenter")
   async segmenterUpload(@UploadedFile("fileName") file: Express.Multer.File) {
+    const brokerSegmenter = new BrokerSegmenter(file);
+    if (await brokerSegmenter.saveInDisk()) {
+      // return brokerSegmenter.startEncode();
+    }
     /*
     const segmenter = new videoSegmenter({
       name: file.originalname,
